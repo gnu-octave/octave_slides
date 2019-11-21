@@ -1,0 +1,32 @@
+This file contains copyright notices and sources of the given resources:
+
+- `cc-by-sa.png`
+  URL: https://i.creativecommons.org/l/by-sa/4.0/88x31.png (2019-11-13)
+  Copyright: creativecommons
+
+- `GNU_Octave_4-4-0_screenshot_1600x900.png`
+  URL: https://www.gnu.org/software/octave/img/GNU_Octave_4-4-0_screenshot_1600x900.png (2019-11-13)
+  Copyright: creativecommons
+
+- `gnu_savannah.png`
+  URL: https://www.gnu.org/graphics/meditate.html (2019-11-13)
+  Copyright: GPLv3+ and GFDL
+
+- `Heckert_GNU_white.svg`
+  URL: https://en.wikipedia.org/wiki/File:Heckert_GNU_white.svg (2019-11-14)
+
+- `Mercurial_no_border_logo.svg`
+  URL: https://commons.wikimedia.org/wiki/File:Mercurial_no_border_logo.svg (2019-11-13)
+  Copyright: GPLv2+
+
+- `octave-flower.svg`
+  URL: https://octave.sourceforge.io/octave-flower.svg (2019-11-19)
+  Copyright: creativecommons
+
+- `octave-logo.svg`, `octave-logo-1024.png`
+  URL: https://hg.savannah.gnu.org/hgweb/octave/file/748aea34aecd/etc/icons/octave-logo.svg (2019-11-13)
+  Copyright: creativecommons
+
+- `Tux.png`
+  URL: https://commons.wikimedia.org/wiki/File:Tux.png (2019-11-21)
+  Copyright: lewing@isc.tamu.edu Larry Ewing and The GIMP

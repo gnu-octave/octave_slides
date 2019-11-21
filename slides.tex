@@ -8,11 +8,20 @@
 \usepackage[backend=biber]{biblatex}
 \addbibresource{octave.bib}
 \usepackage{mathtools}
+\usepackage{multimedia}
 \usepackage{siunitx}
+\usepackage{pifont}
+\usepackage{tikz}
+\newcommand*\colorcheck[1]{%
+  \expandafter\newcommand\csname #1check\endcsname{\textcolor{#1}{\ding{52}}}%
+}
+\colorcheck{green}
 
-\title[GNU Octave]{Scientific programming with GNU Octave}
+\title[GNU Octave]{Scientific programming with GNU Octave
+  \includegraphics[width=1.5em]{res/images/octave-logo-1024.png}
+}
 \author[Kai T. Ohlhus]{
-  オールフス、カイトーベン \\
+  オールフス　カイトーベン \\
   OHLHUS, Kai Torben}
 \institute[TWCU]{
   理学研究科 \\
@@ -20,9 +29,53 @@
   東京女子大学 \\
   Tokyo Woman's Christian University}
 \date{November 22, 2019}
+\titlegraphic{
+\vfill
+\hfill\includegraphics[height=1em]{res/images/cc-by-sa}
+}
 
 \begin{document}
 
+{
+\usebackgroundtemplate{
+  \vbox to \paperheight{\vfil\hbox to \paperwidth{\hfil
+  \tikz\node[opacity=0.15] {
+  \includegraphics[width=0.8\paperwidth]{res/images/example-mesh}
+  };
+  \hfil}\vfil}
+}
 \frame{\titlepage}
+}
+
+
+\section{About GNU Octave}
+\frame{\tableofcontents}
+\input{slides_intro}
+
+
+\section{Installation}
+\frame{\tableofcontents[currentsection]}
+\input{slides_ms_windows}
+\input{slides_installation}
+
+
+\section{Using Octave (Demos)}
+\frame{\tableofcontents[currentsection]}
+\input{slides_demos}
+
+
+\section{Development}
+\frame{\tableofcontents[currentsection]}
+\input{slides_development}
+
+
+\section{Reporting Bugs and Getting Help}
+\frame{\tableofcontents[currentsection]}
+\input{slides_bugs_help}
+
+
+\section{Wrapping up}
+\frame{\tableofcontents[currentsection]}
+\input{slides_thank_you}
 
 \end{document}
