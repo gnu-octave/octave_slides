@@ -14,7 +14,7 @@ PDFLATEX=pdflatex -interaction=batchmode
 PDFLATEX_FAST= $(PDFLATEX) -draftmode $(TEX_FILE) > /dev/null
 PDFLATEX_FINAL=$(PDFLATEX) -synctex=1 $(TEX_FILE) > /dev/null
 
-slides: clean libreoffice
+slides: clean libreoffice jupyter_notebooks
 	$(PDFLATEX_FAST)
 	$(PDFLATEX_FAST)
 	$(BIBER)
@@ -27,6 +27,9 @@ slides: clean libreoffice
 
 libreoffice:
 	cd res/libreoffice && libreoffice --convert-to pdf *.odg
+
+jupyter_notebooks:
+	cd jupyter && jupyter nbconvert --to html *.ipynb
 
 clean:
 	find . -iname "$(SLIDES)*" \
