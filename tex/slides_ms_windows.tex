@@ -1,22 +1,21 @@
 \begin{frame}{Installing GNU Octave on MS Windows 10 (1/8)}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{res/ms_windows/win_octave_gui.png}
+\includegraphics[width=0.65\textwidth]{res/ms_windows/win_octave_gui.png}
 \end{center}
 \end{frame}
 
 
 
 \begin{frame}{Installing GNU Octave on MS Windows 10 (2/8)}
-\begin{center}
-\url{https://www.octave.org/download}
-\end{center}
 \begin{columns}
-\begin{column}{0.5\textwidth}
-\includegraphics[width=0.9\textwidth]{res/ms_windows/win_download_cropped.png}
+\begin{column}{0.35\textwidth}
+\includegraphics[width=\textwidth]{res/ms_windows/win_download_cropped.png}
 \end{column}
-\begin{column}{0.4\textwidth}
+\begin{column}{0.6\textwidth}
+{\Large\color{DarkBlue}\url{https://www.octave.org/download}}\\[1em]
+
 \begin{itemize}
-\itemsep0.8em
+\itemsep1em
 \item
 \textbf{w32}: 32-bit systems (very old or embedded devices)
 
@@ -24,11 +23,15 @@
 \textbf{w64}: 64-bit systems \greencheck
 
 \item
-\textbf{w64-64}: 64-bit systems with \textbf{large} main memory
-$2^{32} \times 8 \,Bytes = 32 \,GB$\\[0.5em]
+\textbf{w64-64}: 64-bit systems with \textbf{large} main memory:\\[1em]
+\begin{itemize}
+\item
+Objects with more than $2^{32}$ Elements, e.g.\\[1em]
 
-Working with dense double matrices with $400,000 \times 100,000$ entries
-($\approx 298 \,GB$) \textbf{need} this.
+$\num{66000}\times\num{66000}$-matrices (dense)\\[1em]
+
+$\approx\mathbf{32 \,GB}$ (double precision)
+\end{itemize}
 \end{itemize}
 \end{column}
 \end{columns}
@@ -38,6 +41,9 @@ Working with dense double matrices with $400,000 \times 100,000$ entries
 
 \begin{frame}{Installing GNU Octave on MS Windows 10 (3/8)}
 \begin{columns}
+\begin{column}{0.35\textwidth}
+\includegraphics[width=\textwidth]{res/ms_windows/win_install_java_warning.png}
+\end{column}
 \begin{column}{0.5\textwidth}
 \textbf{Ignore} Java warning:
 \begin{itemize}
@@ -47,9 +53,14 @@ Octave works perfectly without Java.
 \item
 Octave's Java interface might not work properly.
 \end{itemize}
-
-\vspace*{2em}
-
+\end{column}
+\end{columns}
+\bigskip
+\begin{columns}
+\begin{column}{0.35\textwidth}
+\includegraphics[width=\textwidth]{res/ms_windows/win_install_blas.png}
+\end{column}
+\begin{column}{0.5\textwidth}
 \textbf{Choose:}
 \begin{itemize}
 \item
@@ -63,46 +74,50 @@ Octave's Java interface might not work properly.
 {\footnotesize \url{https://www.netlib.org/blas/}}
 \end{itemize}
 \end{column}
-\begin{column}{0.4\textwidth}
-\includegraphics[width=\textwidth]{res/ms_windows/win_install_java_warning.png}
-\\[1em]
-\includegraphics[width=\textwidth]{res/ms_windows/win_install_blas.png}
-\end{column}
 \end{columns}
 \end{frame}
 
 
 
 \begin{frame}{Installing GNU Octave on MS Windows 10 (4/8)}
-\begin{itemize}
-\item
-As usual: desktop icons (left) and start menu entries (right).
-\end{itemize}
 \begin{columns}
-\begin{column}{0.4\textwidth}
-\includegraphics[width=0.6\textwidth]{res/ms_windows/win_install_desktop_icons.png}
+\begin{column}{0.2\textwidth}
+\includegraphics[width=\textwidth]{res/ms_windows/win_install_desktop_icons.png}
 \end{column}
-\begin{column}{0.4\textwidth}
-\includegraphics[width=0.8\textwidth]{res/ms_windows/win_install_startmenu_icons.png}
+\begin{column}{0.3\textwidth}
+\includegraphics[width=\textwidth]{res/ms_windows/win_install_startmenu_icons.png}
 \end{column}
-\end{columns}
+\begin{column}{0.45\textwidth}
 \begin{itemize}
+\itemsep1em
 \item
-Start
+As usual, the installer creates
 \begin{itemize}
+\itemsep0.6em
+\item
+desktop icons (left)
+\item
+start menu entries (right)
+\end{itemize}
+\item
+to start
+\begin{itemize}
+\itemsep0.6em
 \item
 \textbf{command-line interface (CLI)}
 \item
 \textbf{graphical user interface (GUI)}
 \end{itemize}
 \end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 
 
 \begin{frame}{Installing GNU Octave on MS Windows 10 (5/8)}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{res/ms_windows/win_octave_cli_plot.png}
+\includegraphics[width=0.75\textwidth]{res/ms_windows/win_octave_cli_plot.png}
 \end{center}
 \end{frame}
 
@@ -110,27 +125,40 @@ Start
 
 \begin{frame}{Installing GNU Octave on MS Windows 10 (6/8)}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{res/ms_windows/win_octave_gui_plot.png}
+\includegraphics[width=0.7\textwidth]{res/ms_windows/win_octave_gui_plot.png}
 \end{center}
 \end{frame}
 
 
 
 \begin{frame}{Installing GNU Octave on MS Windows 10 (7/8)}
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\includegraphics[width=\textwidth]{res/ms_windows/win_octave_packages.png}
+\end{column}
+\begin{column}{0.35\textwidth}
 \begin{itemize}
+\itemsep1em
 \item
-Many \textbf{\color{DarkBlue}Octave Forge} packages precompiled
-as part of the installer.
-\item
-No need to download them, just \textbf{load} them.
+Many \textbf{\color{DarkBlue}Octave Forge} packages
+already shipped precompiled as part of the installer.
 
-$\quad\rightarrow$ \texttt{pkg list}
-$\qquad\quad\;\rightarrow$ \texttt{pkg load io}
+\item
+No need to download,
+
+just \textbf{load} them:
+
+\begin{itemize}
+\itemsep1em
+\item
+\texttt{pkg list}
+\item
+\texttt{pkg load io}
 \end{itemize}
-\begin{center}
-\includegraphics[width=0.6\textwidth]{res/ms_windows/win_octave_packages.png}
-\end{center}
-\vspace*{-0.8em}
+\end{itemize}
+\end{column}
+\end{columns}
+\bigskip
 \texttt{C:\textbackslash Octave\textbackslash Octave-5.1.0.0\textbackslash
   mingw64\textbackslash share\textbackslash octave\textbackslash packages}
 \end{frame}
@@ -139,7 +167,7 @@ $\qquad\quad\;\rightarrow$ \texttt{pkg load io}
 
 \begin{frame}{Installing GNU Octave on MS Windows 10 (8/8)}
 \begin{columns}
-\begin{column}{0.3\textwidth}
+\begin{column}{0.25\textwidth}
 \includegraphics[width=\textwidth]{res/ms_windows/win_octave_settings.png}
 \end{column}
 \begin{column}{0.6\textwidth}

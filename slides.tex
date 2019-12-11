@@ -1,4 +1,4 @@
-\documentclass[xcolor=svgnames]{beamer}
+\documentclass[xcolor=svgnames,aspectratio=169]{beamer}
 \usetheme{Boadilla}
 
 \usepackage[utf8]{inputenc}
@@ -40,7 +40,7 @@
 \usebackgroundtemplate{
   \vbox to \paperheight{\vfil\hbox to \paperwidth{\hfil
   \tikz\node[opacity=0.15] {
-  \includegraphics[width=0.8\paperwidth]{res/images/example-mesh}
+  \includegraphics[width=0.6\paperwidth]{res/images/example-mesh}
   };
   \hfil}\vfil}
 }
@@ -50,32 +50,32 @@
 
 \section{About GNU Octave}
 \frame{\tableofcontents}
-\input{slides_intro}
+\input{tex/slides_intro}
 
 
 \section{Installation}
 \frame{\tableofcontents[currentsection]}
-\input{slides_ms_windows}
-\input{slides_installation}
+\input{tex/slides_ms_windows}
+\input{tex/slides_installation}
 
 
 \section{Using Octave (Demos)}
 \frame{\tableofcontents[currentsection]}
-\input{slides_demos}
+\input{tex/slides_demos}
 
 
 \section{Development}
 \frame{\tableofcontents[currentsection]}
-\input{slides_development}
+\input{tex/slides_development}
 
 
 \section{Reporting Bugs and Getting Help}
 \frame{\tableofcontents[currentsection]}
-\input{slides_bugs_help}
+\input{tex/slides_bugs_help}
 
 
 \section{Wrapping up}
 \frame{\tableofcontents[currentsection]}
-\input{slides_thank_you}
+\input{tex/slides_thank_you}
 
 \end{document}
