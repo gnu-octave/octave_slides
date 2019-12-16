@@ -1,10 +1,17 @@
 SLIDES=slides
-BIBLIO=mybib
 
 # Files
 TARGET=$(SLIDES).pdf
 TEX_FILE=$(SLIDES).tex
 BIB_FILE=$(SLIDES).bib
+
+LIBREOFFICE_DIR=res/libreoffice
+LIBREOFFICE_SRC=$(wildcard $(LIBREOFFICE_DIR)/*.odg)
+LIBREOFFICE_PDF=$(subst .odg,.pdf,$(LIBREOFFICE_SRC))
+
+NOTEBOOK_DIR=jupyter
+NOTEBOOK_SRC=$(wildcard $(NOTEBOOK_DIR)/*.ipynb)
+NOTEBOOK_HTML=$(subst .ipynb,.html,$(NOTEBOOK_SRC))
 
 # Commands
 BIBER=biber   $(SLIDES)     > /dev/null
@@ -14,22 +21,18 @@ PDFLATEX=pdflatex -interaction=batchmode
 PDFLATEX_FAST= $(PDFLATEX) -draftmode $(TEX_FILE) > /dev/null
 PDFLATEX_FINAL=$(PDFLATEX) -synctex=1 $(TEX_FILE) > /dev/null
 
-slides: clean libreoffice jupyter_notebooks
+all: clean libreoffice notebooks
 	$(PDFLATEX_FAST)
 	$(PDFLATEX_FAST)
 	$(BIBER)
-	#$(GLOSSARIES)
-	#$(INDEX)
 	$(PDFLATEX_FAST)
-	#$(GLOSSARIES)
-	#$(INDEX)
 	$(PDFLATEX_FINAL)
 
 libreoffice:
-	cd res/libreoffice && libreoffice --convert-to pdf *.odg
+	cd ${LIBREOFFICE_DIR} && libreoffice --convert-to pdf *.odg
 
-jupyter_notebooks:
-	cd jupyter && jupyter nbconvert --to html *.ipynb
+notebooks:
+	cd ${NOTEBOOK_DIR} && jupyter nbconvert --to html *.ipynb
 
 clean:
 	find . -iname "$(SLIDES)*" \
@@ -37,3 +40,4 @@ clean:
 	  -not -name "*.bib" \
 	  -not -name "$(TARGET)" \
 	  -exec $(RM) {} \;
+	rm ${LIBREOFFICE_PDF} ${NOTEBOOK_HTML}
