@@ -1,0 +1,24 @@
+\begin{frame}[fragile]{Generic GNU/Linux}
+\begin{itemize}
+\itemsep2em
+\item Installation
+({\color{DarkBlue}Singularity} GNU Octave 5.1.0 image download $\approx 500$ MB)
+\begin{lstlisting}[
+  breaklines=true,
+  postbreak=\mbox{\textcolor{DarkBlue}{$\hookrightarrow$}\space},
+  xleftmargin=4em]
+mkdir jupyter
+cd    jupyter
+wget https://raw.githubusercontent.com/octave-de/octave_slides/master/res/linux/install_run_octave_jupyterlab.sh
+bash  install_run_octave_jupyterlab.sh
+\end{lstlisting}
+$\Rightarrow$ {\textcolor{DarkBlue}JupyterLab} should start automatically
+in your browser.
+
+\item When done with JupyterLab...
+\begin{lstlisting}[xleftmargin=4em]
+cd ..
+rm -Rf jupyter
+\end{lstlisting}
+\end{itemize}
+\end{frame}

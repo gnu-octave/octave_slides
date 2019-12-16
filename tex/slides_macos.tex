@@ -1,0 +1,22 @@
+\begin{frame}[fragile]{macOS}
+\begin{itemize}
+\itemsep2em
+\item
+Install "Homebrew" (\url{https://brew.sh/}).
+Open a Terminal and run:
+\begin{lstlisting}[
+  breaklines=true,
+  postbreak=\mbox{\textcolor{DarkBlue}{$\hookrightarrow$}\space},
+  xleftmargin=4em]
+brew update
+brew upgrade
+brew install python3 octave        jupyterlab
+pip3 install sympy   octave_kernel
+
+jupyter lab
+\end{lstlisting}
+$\Rightarrow$ {\textcolor{DarkBlue}JupyterLab} should start automatically
+in your browser (Safari).
+\end{itemize}
+\vfill
+\end{frame}

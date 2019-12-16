@@ -6,7 +6,8 @@
 \usepackage{lmodern}
 \usepackage[whole]{bxcjkjatype}
 \usepackage[backend=biber]{biblatex}
-\addbibresource{octave.bib}
+\addbibresource{slides.bib}
+\usepackage{listings}
 \usepackage{mathtools}
 \usepackage{multimedia}
 \usepackage{siunitx}
@@ -17,9 +18,12 @@
 }
 \colorcheck{green}
 
-\title[GNU Octave]{Scientific programming with GNU Octave
+\title[GNU Octave]{Your own GNU Octave under the Xmas tree
   \includegraphics[width=1.5em]{res/images/octave-logo-1024.png}
 }
+\subtitle{Finish your numerical experiments before New Year's Eve
+\\[1em]
+{\Large- Workshop preparation -}}
 \author[Kai T. Ohlhus]{
   オールフス　カイトーベン \\
   OHLHUS, Kai Torben}
@@ -47,9 +51,50 @@
 \frame{\titlepage}
 }
 
+\section{General preparation}
 
-\section{Installation}
+\frame{\tableofcontents}
+\begin{frame}{General preparation}
+\begin{itemize}
+\item
+Download and extract the following file to your home directory:
+
+\vfill
+
+{\color{DarkBlue}
+$\qquad$\url{https://github.com/octave-de/octave_slides/archive/master.zip}
+}
+
+\vfill
+
+or clone the git repository:
+
+\vfill
+
+$\qquad$\texttt{git clone https://github.com/octave-de/octave\_slides.git}
+\end{itemize}
+
+
+\end{frame}
+
+
+\section{GNU/Linux}
+
 \frame{\tableofcontents[currentsection]}
+\input{tex/slides_gnu_linux}
+
+\section{macOS}
+
+\frame{\tableofcontents[currentsection]}
+\input{tex/slides_macos}
+
+\section{MS Windows}
+
+\subsection{GNU Octave}
+\frame{\tableofcontents[currentsection,currentsubsection]}
 \input{tex/slides_ms_windows}
+\subsection{JupyterLab}
+\frame{\tableofcontents[currentsection,currentsubsection]}
+\input{tex/slides_ms_windows_jupyterlab}
 
 \end{document}
