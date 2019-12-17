@@ -246,3 +246,7 @@ TSWLatexianTemp*
 
 # export directory
 export/
+
+# Generated oct- or mex-files
+*.oct
+*.mex
