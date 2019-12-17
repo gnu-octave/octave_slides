@@ -243,3 +243,6 @@ TSWLatexianTemp*
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
+
+# export directory
+export/
