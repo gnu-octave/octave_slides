@@ -43,4 +43,6 @@ clean:
 	    -exec $(RM) {} \; \
 	  ; )
 	rm -f ${LIBREOFFICE_PDF}
+
+clean-all: clean
 	rm -Rf export
