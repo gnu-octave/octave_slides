@@ -30,3 +30,11 @@ This file contains copyright notices and sources of the given resources:
 - `Tux.png`
   URL: https://commons.wikimedia.org/wiki/File:Tux.png (2019-11-21)
   Copyright: lewing@isc.tamu.edu Larry Ewing and The GIMP
+
+- `santa_claus.png`
+  URL: https://commons.wikimedia.org/wiki/File:Cute_Santa_Claus_Character_Giving_The_Thumbs_Up.svg
+  Copyright: creativecommons
+
+- `santa_elves.png`
+  URL: http://drorbn.net/AcademicPensieve/Talks/GWU-1612/Christmas-Cute-Elves.png (2019-12-17)
+  Copyright: http://www.math.toronto.edu/~drorbn/Copyleft/index.html
