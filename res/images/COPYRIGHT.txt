@@ -15,6 +15,14 @@ This file contains copyright notices and sources of the given resources:
 - `Heckert_GNU_white.svg`
   URL: https://en.wikipedia.org/wiki/File:Heckert_GNU_white.svg (2019-11-14)
 
+- `ISO_C++_Logo.png`, `ISO_C++_Logo.svg`
+  URL: https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg (2019-12-18)
+  Copyright: creativecommons
+
+- `Fortran-logo.jpg`
+  URL: https://commons.wikimedia.org/wiki/File:Fortran_acs_cover.jpeg (2019-12-18)
+  Copyright: creativecommons
+
 - `Mercurial_no_border_logo.svg`
   URL: https://commons.wikimedia.org/wiki/File:Mercurial_no_border_logo.svg (2019-11-13)
   Copyright: GPLv2+
@@ -27,10 +35,6 @@ This file contains copyright notices and sources of the given resources:
   URL: https://hg.savannah.gnu.org/hgweb/octave/file/748aea34aecd/etc/icons/octave-logo.svg (2019-11-13)
   Copyright: creativecommons
 
-- `Tux.png`
-  URL: https://commons.wikimedia.org/wiki/File:Tux.png (2019-11-21)
-  Copyright: lewing@isc.tamu.edu Larry Ewing and The GIMP
-
 - `santa_claus.png`
   URL: https://commons.wikimedia.org/wiki/File:Cute_Santa_Claus_Character_Giving_The_Thumbs_Up.svg
   Copyright: creativecommons
@@ -38,3 +42,7 @@ This file contains copyright notices and sources of the given resources:
 - `santa_elves.png`
   URL: http://drorbn.net/AcademicPensieve/Talks/GWU-1612/Christmas-Cute-Elves.png (2019-12-17)
   Copyright: http://www.math.toronto.edu/~drorbn/Copyleft/index.html
+
+- `Tux.png`
+  URL: https://commons.wikimedia.org/wiki/File:Tux.png (2019-11-21)
+  Copyright: lewing@isc.tamu.edu Larry Ewing and The GIMP
