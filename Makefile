@@ -37,7 +37,7 @@ export-notebooks:
 clean: clean-tex
 	rm -f ${LIBREOFFICE_PDF}
 
-clean-all: clean
+clean-all: clean hands-on
 	rm -Rf export
 
 clean-tex:
@@ -49,3 +49,10 @@ clean-tex:
 	    -not -name "$(TEX_FILE).pdf" \
 	    -exec $(RM) {} \; \
 	  ; )
+
+clean-hands-on:
+	find ./hands_on -maxdepth 1 \
+	  \( -iname "*.exe" -o -iname "*.oct" \) \
+	  -exec $(RM) {} \;
+	find ./hands_on -type d -iname ".ipynb_checkpoints" \
+	  -exec $(RM) -R {} \;
