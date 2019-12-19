@@ -21,24 +21,26 @@ MAKE_TEX_FILES=$(call PDFLATEX_FAST,$(1)) && \
 	$(call PDFLATEX_FINAL,$(1)) \
 	;
 
-all: clean libreoffice
+all: tex ${NOTEBOOK_DIR}.zip
+
+tex: clean-tex libreoffice
 	$(foreach TEX_FILE,$(TEX_FILES), \
 	  $(call MAKE_TEX_FILES, $(TEX_FILE)) \
 	)
 
-libreoffice:
+libreoffice: clean-${LIBREOFFICE_DIR}
 	cd ${LIBREOFFICE_DIR} && libreoffice --convert-to pdf *.odg
 
-export-notebooks:
-	mkdir -p export
+${NOTEBOOK_DIR}.zip: clean-${NOTEBOOK_DIR}
+	$(RM) ${NOTEBOOK_DIR}.zip
 	cd ${NOTEBOOK_DIR} && jupyter nbconvert --to html *.ipynb
-	mv -t export ${NOTEBOOK_HTML}
+	mkdir  -p ${NOTEBOOK_DIR}/html
+	mv     -t ${NOTEBOOK_DIR}/html ${NOTEBOOK_HTML}
+	zip -q -r ${NOTEBOOK_DIR}.zip  ${NOTEBOOK_DIR}
+	$(RM) -R  ${NOTEBOOK_DIR}/html
 
-clean: clean-tex
-	rm -f ${LIBREOFFICE_PDF}
 
-clean-all: clean hands-on
-	rm -Rf export
+clean: clean-tex clean-${NOTEBOOK_DIR} clean-${LIBREOFFICE_DIR}
 
 clean-tex:
 	$(foreach TEX_FILE,$(TEX_FILES), \
@@ -50,9 +52,12 @@ clean-tex:
 	    -exec $(RM) {} \; \
 	  ; )
 
-clean-hands-on:
-	find ./hands_on -maxdepth 1 \
+clean-${NOTEBOOK_DIR}:
+	find ${NOTEBOOK_DIR} -maxdepth 1 \
 	  \( -iname "*.exe" -o -iname "*.oct" \) \
 	  -exec $(RM) {} \;
-	find ./hands_on -type d -iname ".ipynb_checkpoints" \
+	find ${NOTEBOOK_DIR} -type d -iname ".ipynb_checkpoints" \
 	  -exec $(RM) -R {} \;
+
+clean-${LIBREOFFICE_DIR}:
+	$(RM) ${LIBREOFFICE_PDF}

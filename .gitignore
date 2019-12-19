@@ -244,10 +244,8 @@ TSWLatexianTemp*
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
-# export directory
-export/
-
-# Generated oct-, exe- or mex-files
+# Generated files
 *.exe
 *.oct
 *.mex
+*.zip
