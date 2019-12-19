@@ -1,0 +1,67 @@
+\documentclass{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage[bottom=20mm]{geometry}
+
+\fancypagestyle{plain}{}
+\chead{JSIAM 11th Three-Group Meeting "Applied Mathematical Seminar"\\
+University of Tokyo}
+\cfoot{}
+
+\title{Your own GNU Octave under the Xmas tree}
+\subtitle{Finish your numerical experiments before New Year's Eve}
+\author{OHLHUS, Kai Torben\footnote{email: \texttt{ohlhus@lab.twcu.ac.jp},
+Graduate School of Science,
+Tokyo Woman's Christian University}}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{About GNU Octave}
+
+GNU Octave is a numerical computing environment
+and a high-level programming language.
+It provides a convenient interface for solving linear and nonlinear problems,
+and for performing other numerical experiments.
+The language is mostly compatible with MATLAB.
+Besides 2D and 3D plotting capabilities,
+Octave provides an integrated development environment for editing,
+debugging, and profiling numerical algorithms.
+Octave can be freely obtained, modified, and redistributed
+under the terms of the GPL, the free and open source software license.
+
+\section*{Outline}
+
+This talk aims to provide a deeper knowledge in developing
+fast numerical algorithms using Octave by investigating several possibilities
+and limitations of that software.
+Some topics covered are how to write fast Octave code by considering
+vectorization, appropriate data types, and memory management strategies.
+Concepts for organizing larger software projects
+by using object-oriented programming and packages are presented
+and how to conveniently interface existing C/C++ and Fortran code libraries.
+This knowledge is a good start for the development of GNU Octave itself
+and how to build custom versions,
+which will be introduced in the remainder of the talk.
+
+\section*{Preparation and material}
+
+During the talk there will be small "hands on" sessions using Jupyter notebooks.
+For the best experience of these sessions,
+please bring your own laptop with Internet connection (e.g. eduroam).
+The material can be obtained online\footnote{\url{https://github.com/octave-de/octave_slides/releases/tag/2019-12-24}}.
+Please read the document \texttt{setup.pdf}.
+
+For a limited number of about 15 participants,
+we can provide online access to the TWCU JupyterLab server\footnote{\url{http://jupyter.math.twcu.ac.jp:8000}}.
+In this case only an Internet connection is required.
+The login data is provided at the day of the event
+or can be obtained by the author beforehand.
+
+\end{document}
