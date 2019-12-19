@@ -1,4 +1,4 @@
-SLIDES=slides setup
+TEX_FILES=handout setup slides
 
 # Directories with files to be cleaned later
 LIBREOFFICE_DIR=res/libreoffice
@@ -14,7 +14,7 @@ BIBER=biber $(1) > /dev/null
 PDFLATEX=pdflatex -interaction=batchmode
 PDFLATEX_FAST= $(PDFLATEX) -draftmode $(1) > /dev/null
 PDFLATEX_FINAL=$(PDFLATEX) -synctex=1 $(1) > /dev/null
-MAKE_SLIDES=$(call PDFLATEX_FAST,$(1)) && \
+MAKE_TEX_FILES=$(call PDFLATEX_FAST,$(1)) && \
 	$(call PDFLATEX_FAST,$(1)) && \
 	$(call BIBER,$(1)) && \
 	$(call PDFLATEX_FAST,$(1)) && \
@@ -22,8 +22,8 @@ MAKE_SLIDES=$(call PDFLATEX_FAST,$(1)) && \
 	;
 
 all: clean libreoffice
-	$(foreach SLIDE,$(SLIDES), \
-	  $(call MAKE_SLIDES, $(SLIDE)) \
+	$(foreach TEX_FILE,$(TEX_FILES), \
+	  $(call MAKE_TEX_FILES, $(TEX_FILE)) \
 	)
 
 libreoffice:
@@ -34,15 +34,18 @@ export-notebooks:
 	cd ${NOTEBOOK_DIR} && jupyter nbconvert --to html *.ipynb
 	mv -t export ${NOTEBOOK_HTML}
 
-clean:
-	$(foreach SLIDE,$(SLIDES), \
-	  find . -iname "$(SLIDE)*" \
-	    -not -name "*.tex" \
-	    -not -name "*.bib" \
-	    -not -name "$(SLIDE).pdf" \
-	    -exec $(RM) {} \; \
-	  ; )
+clean: clean-tex
 	rm -f ${LIBREOFFICE_PDF}
 
 clean-all: clean
 	rm -Rf export
+
+clean-tex:
+	$(foreach TEX_FILE,$(TEX_FILES), \
+	  find . -maxdepth 1 \
+	    -iname "$(TEX_FILE)*" \
+	    -not -name "*.tex" \
+	    -not -name "*.bib" \
+	    -not -name "$(TEX_FILE).pdf" \
+	    -exec $(RM) {} \; \
+	  ; )
