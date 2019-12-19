@@ -242,6 +242,7 @@ TSWLatexianTemp*
 *.spl
 
 # Jupyter checkpoints
+jupyterlab/
 .ipynb_checkpoints/
 
 # Generated files

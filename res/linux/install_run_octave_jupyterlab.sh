@@ -30,6 +30,7 @@ if [ ! -d "$SCRIPT_DIR/bin" ] || [ ! -f "$SCRIPT_DIR/bin/activate" ]; then
 # For octave_kernel in JupyterLab to work.
 export SINGULARITY_BIND="${PYTHON_SITE_DIR}/octave_kernel/_make_figures.m:/usr/local/share/octave/5.1.0/m/miscellaneous/_make_figures.m"
 
+export LD_LIBRARY_PATH="/usr/local/lib/octave/5.1.0/:\${LD_LIBRARY_PATH}"
 singularity exec ${OCTAVE_SIF} "\${0##*/}" "\$@"
 EOT
 
