@@ -27,42 +27,44 @@ MAKE_TEX_FILES=$(call PDFLATEX_FAST,$(1)) && \
 all: tex ${NOTEBOOK_DIR}.zip
 
 tex: clean-tex libreoffice
-	$(foreach TEX_FILE,$(TEX_FILES), \
+	$(foreach TEX_FILE,$(TEX_FILES),      \
 	  $(call MAKE_TEX_FILES, $(TEX_FILE)) \
 	)
 
-libreoffice: clean-${LIBREOFFICE_DIR}
+libreoffice: clean-$(notdir ${LIBREOFFICE_DIR})
 	cd ${LIBREOFFICE_DIR} && libreoffice --convert-to pdf *.odg
 	cd ${LIBREOFFICE_DIR} \
 	&& libreoffice --convert-to svg  octave_c_cpp_fortran_*.odg
 
-${NOTEBOOK_DIR}.zip: clean-${NOTEBOOK_DIR}
+$(notdir ${NOTEBOOK_DIR}).zip: clean-$(notdir ${NOTEBOOK_DIR})
 	$(RM) ${NOTEBOOK_DIR}.zip
 	cd ${NOTEBOOK_DIR} && jupyter nbconvert --to html *.ipynb
 	mkdir  -p ${NOTEBOOK_DIR}/html
 	mv     -t ${NOTEBOOK_DIR}/html ${NOTEBOOK_HTML}
-	zip -q -r ${NOTEBOOK_DIR}.zip  ${NOTEBOOK_DIR}
+	zip -q -r ${NOTEBOOK_DIR}.zip  $(notdir ${NOTEBOOK_DIR})
 	$(RM) -R  ${NOTEBOOK_DIR}/html
 
 
-clean: clean-tex clean-${NOTEBOOK_DIR} clean-${LIBREOFFICE_DIR}
+clean: clean-tex                          \
+       clean-$(notdir ${NOTEBOOK_DIR})    \
+       clean-$(notdir ${LIBREOFFICE_DIR})
 
 clean-tex:
 	$(foreach TEX_FILE,$(TEX_FILES), \
-	  find . -maxdepth 1 \
-	    -iname "$(TEX_FILE)*" \
-	    -not -name "*.tex" \
-	    -not -name "*.bib" \
+	  find . -maxdepth 1             \
+	    -iname "$(TEX_FILE)*"        \
+	    -not -name "*.tex"           \
+	    -not -name "*.bib"           \
 	    -not -name "$(TEX_FILE).pdf" \
-	    -exec $(RM) {} \; \
+	    -exec $(RM) {} \;            \
 	  ; )
 
-clean-${NOTEBOOK_DIR}:
-	find ${NOTEBOOK_DIR} -maxdepth 1 \
+clean-$(notdir ${NOTEBOOK_DIR}):
+	find ${NOTEBOOK_DIR} -maxdepth 1         \
 	  \( -iname "*.exe" -o -iname "*.oct" \) \
 	  -exec $(RM) {} \;
 	find ${NOTEBOOK_DIR} -type d -iname ".ipynb_checkpoints" \
 	  -exec $(RM) -R {} \;
 
-clean-${LIBREOFFICE_DIR}:
+clean-$(notdir ${LIBREOFFICE_DIR}):
 	$(RM) ${LIBREOFFICE_PDF} ${LIBREOFFICE_SVG}

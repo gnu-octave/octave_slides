@@ -1,0 +1,43 @@
+\begin{frame}{Advanced Octave usage - Classes (1/3)}
+\begin{columns}
+\begin{column}[t]{0.2\textwidth}
+\includegraphics[width=\textwidth]{res/libreoffice/octave_c_cpp_fortran_1}
+\end{column}
+\begin{column}{0.2\textwidth}
+\ttfamily\scriptsize
+\colorbox{green!30}{nice-package} \\
+├ \colorbox{orange!30}{doc} \\
+│ └─ \textbf{html-files} \\
+├ \colorbox{orange!30}{inst} \\
+│ ├─ \colorbox{orange!30}{private} \\
+│ │ \ \ └─ \textbf{m-files} \\
+│ └─ \textbf{m-files} \\
+├ \colorbox{orange!30}{src} \\
+│ ├─ C/C++-files \\
+│ ├─ configure \\
+│ └─ Makefile \\
+├ CITATION \\
+├ {\color{red!50!black}COPYING}  \\
+├ {\color{red!50!black}DESCRIPTION} \\
+├ INDEX    \\
+├ Makefile \\
+├ NEWS     \\
+├ PKG\_ADD \\
+└ PKG\_DEL \\
+\end{column}
+\begin{column}{0.5\textwidth}
+\color{green!50!black}\scriptsize
+package name \\[2em]
+manual for the package \\[8em]
+called if present \\
+called by '\texttt{make}' if present \\
+called by '\texttt{citation ("nice-package")}' \\
+{\color{red!50!black}required} license \\
+{\color{red!50!black}required} \\[1em]
+for maintenance \\
+list of code changes/improvements \\
+commands run, when added   to   users path \\
+commands run, when removed from users path
+\end{column}
+\end{columns}
+\end{frame}
