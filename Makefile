@@ -5,6 +5,7 @@ ROOT_DIR=$(shell pwd)
 # Directories with files to be cleaned later
 LIBREOFFICE_DIR=${ROOT_DIR}/res/libreoffice
 LIBREOFFICE_SRC=$(wildcard $(LIBREOFFICE_DIR)/*.odg)
+LIBREOFFICE_SVG=$(wildcard $(LIBREOFFICE_DIR)/*.svg)
 LIBREOFFICE_PDF=$(subst .odg,.pdf,$(LIBREOFFICE_SRC))
 
 NOTEBOOK_DIR=${ROOT_DIR}/hands_on
@@ -33,8 +34,7 @@ tex: clean-tex libreoffice
 libreoffice: clean-${LIBREOFFICE_DIR}
 	cd ${LIBREOFFICE_DIR} && libreoffice --convert-to pdf *.odg
 	cd ${LIBREOFFICE_DIR} \
-	&& libreoffice --convert-to svg octave_c_cpp_fortran_*.odg \
-	&& mv -t ${NOTEBOOK_DIR}/data   octave_c_cpp_fortran_*.svg
+	&& libreoffice --convert-to svg  octave_c_cpp_fortran_*.odg
 
 ${NOTEBOOK_DIR}.zip: clean-${NOTEBOOK_DIR}
 	$(RM) ${NOTEBOOK_DIR}.zip
@@ -63,7 +63,6 @@ clean-${NOTEBOOK_DIR}:
 	  -exec $(RM) {} \;
 	find ${NOTEBOOK_DIR} -type d -iname ".ipynb_checkpoints" \
 	  -exec $(RM) -R {} \;
-	$(RM) ${NOTEBOOK_DIR}/data/octave_c_cpp_fortran_*.svg
 
 clean-${LIBREOFFICE_DIR}:
-	$(RM) ${LIBREOFFICE_PDF}
+	$(RM) ${LIBREOFFICE_PDF} ${LIBREOFFICE_SVG}

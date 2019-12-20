@@ -250,3 +250,4 @@ jupyterlab/
 *.oct
 *.mex
 *.zip
+res/libreoffice/*.svg
