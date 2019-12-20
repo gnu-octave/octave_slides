@@ -3,12 +3,11 @@
 #include <octave/builtin-defun-decls.h>
 
 int main () {
-  int n = 2;
-  Matrix A = Matrix (n, n);
+  Matrix A(2, 2);
 
   // Fill matrix
-  for (octave_idx_type i = 0; i < n; i++) {
-    for (octave_idx_type j = 0; j < n; j++) {
+  for (auto j = 0; j < A.columns (); j++) {
+    for (auto i = 0; i <  A.rows (); i++) {
       A(i,j) = (i + 1) * 10 + (j + 1);
     }
   }
