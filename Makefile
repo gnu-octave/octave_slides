@@ -1,11 +1,13 @@
 TEX_FILES=handout setup slides
 
+ROOT_DIR=$(shell pwd)
+
 # Directories with files to be cleaned later
-LIBREOFFICE_DIR=res/libreoffice
+LIBREOFFICE_DIR=${ROOT_DIR}/res/libreoffice
 LIBREOFFICE_SRC=$(wildcard $(LIBREOFFICE_DIR)/*.odg)
 LIBREOFFICE_PDF=$(subst .odg,.pdf,$(LIBREOFFICE_SRC))
 
-NOTEBOOK_DIR=hands_on
+NOTEBOOK_DIR=${ROOT_DIR}/hands_on
 NOTEBOOK_SRC=$(wildcard $(NOTEBOOK_DIR)/*.ipynb)
 NOTEBOOK_HTML=$(subst .ipynb,.html,$(NOTEBOOK_SRC))
 
@@ -30,6 +32,9 @@ tex: clean-tex libreoffice
 
 libreoffice: clean-${LIBREOFFICE_DIR}
 	cd ${LIBREOFFICE_DIR} && libreoffice --convert-to pdf *.odg
+	cd ${LIBREOFFICE_DIR} \
+	&& libreoffice --convert-to svg octave_c_cpp_fortran_*.odg \
+	&& mv -t ${NOTEBOOK_DIR}/data   octave_c_cpp_fortran_*.svg
 
 ${NOTEBOOK_DIR}.zip: clean-${NOTEBOOK_DIR}
 	$(RM) ${NOTEBOOK_DIR}.zip
@@ -58,6 +63,7 @@ clean-${NOTEBOOK_DIR}:
 	  -exec $(RM) {} \;
 	find ${NOTEBOOK_DIR} -type d -iname ".ipynb_checkpoints" \
 	  -exec $(RM) -R {} \;
+	$(RM) ${NOTEBOOK_DIR}/data/octave_c_cpp_fortran_*.svg
 
 clean-${LIBREOFFICE_DIR}:
 	$(RM) ${LIBREOFFICE_PDF}
