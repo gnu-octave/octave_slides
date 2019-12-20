@@ -49,5 +49,5 @@ DGESV computes the solution to a real system of linear equations\n\
   F77_XFCN (dgesv, DGESV,
             (N, NRHS, A, N, IPIV, B, N, INFO));
 
-  return ovl (X, Afact, ipiv, INFO);
+  return ovl (X, Afact, NDArray (ipiv), INFO);
 }
