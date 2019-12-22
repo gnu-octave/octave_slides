@@ -4,9 +4,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{sourcecodepro}
 \usepackage[whole]{bxcjkjatype}
 \usepackage[backend=biber]{biblatex}
 \addbibresource{octave.bib}
+\usepackage{listings}
+\lstset{
+  language=Octave,
+  basicstyle=\tiny,
+  keywordstyle=\color{blue},
+  morekeywords={classdef,endclassdef,properties,endproperties,methods,endmethods},
+}
 \usepackage{mathtools}
 \usepackage{multimedia}
 \usepackage{siunitx}

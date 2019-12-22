@@ -1,43 +1,108 @@
-\begin{frame}{Advanced Octave usage - Classes (1/3)}
+\begin{frame}[t,fragile]{Advanced Octave usage - Classes (1/4)}
 \begin{columns}
-\begin{column}[t]{0.2\textwidth}
-\includegraphics[width=\textwidth]{res/libreoffice/octave_c_cpp_fortran_1}
+\begin{column}[t]{0.3\textwidth}
+\includegraphics[width=0.66\textwidth]{res/libreoffice/octave_c_cpp_fortran_1}
 \end{column}
-\begin{column}{0.2\textwidth}
-\ttfamily\scriptsize
-\colorbox{green!30}{nice-package} \\
-├ \colorbox{orange!30}{doc} \\
-│ └─ \textbf{html-files} \\
-├ \colorbox{orange!30}{inst} \\
-│ ├─ \colorbox{orange!30}{private} \\
-│ │ \ \ └─ \textbf{m-files} \\
-│ └─ \textbf{m-files} \\
-├ \colorbox{orange!30}{src} \\
-│ ├─ C/C++-files \\
-│ ├─ configure \\
-│ └─ Makefile \\
-├ CITATION \\
-├ {\color{red!50!black}COPYING}  \\
-├ {\color{red!50!black}DESCRIPTION} \\
-├ INDEX    \\
-├ Makefile \\
-├ NEWS     \\
-├ PKG\_ADD \\
-└ PKG\_DEL \\
+\begin{column}{0.3\textwidth}
+\textbf{Old-style classes}\\[1em]
+
+{\ttfamily\scriptsize
+\colorbox{orange!30}{@myclass} \\
+├ \colorbox{orange!30}{private} \\
+│ └─ secret.m \\
+├ myclass.m   \\
+└ disp.m} \\[1em]
+
+\begin{itemize}
+\item
+limited attributes (public, private)
+
+\item
+folder structure required
+\end{itemize}
 \end{column}
-\begin{column}{0.5\textwidth}
-\color{green!50!black}\scriptsize
-package name \\[2em]
-manual for the package \\[8em]
-called if present \\
-called by '\texttt{make}' if present \\
-called by '\texttt{citation ("nice-package")}' \\
-{\color{red!50!black}required} license \\
-{\color{red!50!black}required} \\[1em]
-for maintenance \\
-list of code changes/improvements \\
-commands run, when added   to   users path \\
-commands run, when removed from users path
+\begin{column}{0.3\textwidth}
+\textbf{classdef classes}
+\begin{lstlisting}
+classdef myclass
+  properties
+    value
+  endproperties
+
+  methods (Access = private)
+    function a = secret (obj, ...)
+      ...
+    endfunction
+  endmethods
+
+  methods
+    function obj = myclass ()
+      obj.value = 42;
+      ...
+    endfunction
+
+    function disp (obj)
+      disp (obj.value)
+    endfunction
+  endmethods
+endclassdef
+\end{lstlisting}
 \end{column}
 \end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{Advanced Octave usage - Classes (2/4)}
+\textbf{Arithmetic operator overloading}\footnote{\url{https://octave.org/doc/v5.1.0/Function-Overloading.html}}
+
+\begin{lstlisting}[basicstyle=\normalfont,xleftmargin=4em]
++a          uplus (a)     Unary addition
+-a         uminus (a)     Unary subtraction
+a + b        plus (a, b)  Binary addition
+a - b       minus (a, b)  Binary subtraction
+a .* b      times (a, b)  Element-wise multiplication
+a  * b     mtimes (a, b)  Matrix multiplication
+a ./ b    rdivide (a, b)  Element-wise right division
+a  / b   mrdivide (a, b)  Matrix right division
+a .\ b    ldivide (a, b)  Element-wise left division
+a  \ b   mldivide (a, b)  Matrix left division
+a .^ b      power (a, b)  Element-wise power
+a  ^ b     mpower (a, b)  Matrix power
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{Advanced Octave usage - Classes (3/4)}
+\textbf{Logical operator overloading}
+
+\begin{lstlisting}[basicstyle=\normalfont,xleftmargin=4em]
+a <  b    lt (a, b)   Less than
+a <= b    le (a, b)   Less than or equal to
+a >  b    gt (a, b)   Greater than
+a >= b    ge (a, b)   Greater than or equal to
+a == b    eq (a, b)   Equal to
+a != b    ne (a, b)   Not equal to
+a &  b   and (a, b)   Logical and
+a |  b    or (a, b)   Logical or
+!a       not (a)      Logical not
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{Advanced Octave usage - Classes (4/4)}
+\textbf{Structural operator overloading}
+
+\begin{lstlisting}[basicstyle=\normalfont,xleftmargin=4em]
+              disp (a)        Object display
+a'      ctranspose (a)        Complex conjugate transpose
+a.'      transpose (a)        Transpose
+a:b          colon (a, b)     Two element range
+a:b:c        colon (a, b, c)  Three element range
+[a, b]     horzcat (a, b)     Horizontal concatenation
+[a; b]     vertcat (a, b)     Vertical concatenation
+b(a)     subsindex (a)        Convert object to index
+a(s1,...)  subsref (a, s)     Subscripted reference
+          subsasgn (a, s, b)  Subscripted assignment
+a(s1,...) = b
+\end{lstlisting}
 \end{frame}
