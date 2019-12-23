@@ -46,3 +46,7 @@ This file contains copyright notices and sources of the given resources:
 - `Tux.png`
   URL: https://commons.wikimedia.org/wiki/File:Tux.png (2019-11-21)
   Copyright: lewing@isc.tamu.edu Larry Ewing and The GIMP
+
+- `xmas-coffee.jpeg`
+  URL: https://www.pexels.com/photo/chocolate-christmas-cocoa-comfort-261446/ (2019-12-23)
+  Copyright: creativecommons
